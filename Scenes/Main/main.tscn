@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Main/main.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Materials/theme.tres" type="Theme" id=6]
 [ext_resource path="res://Scenes/Main/camera.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Audio/countdown.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/loop_back.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 5, 194 )
@@ -220,10 +221,27 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("BG/LoopEndSFX")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="DynamicFont" id=6]
 size = 80
 font_data = ExtResource( 3 )
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+audio_stream = ExtResource( 9 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -284,7 +302,7 @@ autowrap = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.137255, 0.133333, 0.129412, 1 )
+color = Color( 0.0823529, 0.0784314, 0.0784314, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
 root_node = NodePath("../..")
@@ -321,6 +339,10 @@ text = "3"
 
 [node name="CountdownSFX" type="AudioStreamPlayer" parent="BG"]
 stream = ExtResource( 8 )
+volume_db = -5.0
+
+[node name="LoopEndSFX" type="AudioStreamPlayer" parent="BG"]
+stream = SubResource( 7 )
 volume_db = -5.0
 
 [connection signal="timeout" from="LoopTimer" to="." method="_on_LoopTimer_timeout"]

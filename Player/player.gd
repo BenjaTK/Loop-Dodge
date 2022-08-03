@@ -2,6 +2,7 @@ extends MovingEntity
 class_name Player
 
 onready var trail := $Node/Trail
+onready var movingSfx := $MovingSFX
 
 var replay := {}
 var recording := true
@@ -15,6 +16,11 @@ func _physics_process(delta: float) -> void:
 			replay[frames] = dir
 		frames += 1
 	prevDir = dir
+	
+	if dir != Vector2.ZERO:
+		movingSfx.volume_db = lerp(movingSfx.volume_db, -15, 5 * delta)
+	else:
+		movingSfx.volume_db = lerp(movingSfx.volume_db, -30, 5 * delta)
 	
 func game_over() -> void:
 	AudioManager.play_sound("PlayerHurt")

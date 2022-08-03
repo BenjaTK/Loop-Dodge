@@ -1,6 +1,6 @@
 extends Node
 
-var difficulties = {"normal": 12.0, "hard": 8.0, "extreme": 5.0}
+var difficulties := {"normal": 10.0, "hard": 8.0, "extreme": 5.0}
 
 onready var difficulty = difficulties.extreme
 

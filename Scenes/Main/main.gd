@@ -49,6 +49,7 @@ func _create_clone(replay: Dictionary) -> void:
 	add_child(clone)
 
 func game_over(playerPos: Vector2) -> void:
+	loopTimer.paused = true
 	playing = false
 	
 	var deathParticles = deathParticlesScene.instance()

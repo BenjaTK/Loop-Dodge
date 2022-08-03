@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/610533__impe93__rocket-boost.ogg-0026f41102de27699c32274c657871ad.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/610533__impe93__rocket-boost.ogg"
+dest_files=[ "res://.import/610533__impe93__rocket-boost.ogg-0026f41102de27699c32274c657871ad.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

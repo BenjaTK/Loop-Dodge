@@ -1,18 +1,21 @@
 extends Control
 
 onready var difficultySelectScene := load("res://Scenes/DifficultySelect/difficulty_select.tscn")
+onready var mainScene := load("res://Scenes/Main/main.tscn")
 
-onready var playButton := $Buttons/Play
+onready var normalButton := $Buttons/Normal
 
 func _ready() -> void:
-	playButton.grab_focus()
+	normalButton.grab_focus()
 
-func _on_Play_pressed() -> void:
-	get_tree().change_scene_to(difficultySelectScene)
+func _on_Normal_pressed() -> void:
+	Global.difficulty = Global.difficulties.normal
+	get_tree().change_scene_to(mainScene)
 
-func _on_Options_pressed() -> void:
-	pass # Replace with function body.
+func _on_Hard_pressed() -> void:
+	Global.difficulty = Global.difficulties.hard
+	get_tree().change_scene_to(mainScene)
 
-
-func _on_Exit_pressed() -> void:
-	get_tree().quit()
+func _on_Extreme_pressed() -> void:
+	Global.difficulty = Global.difficulties.extreme
+	get_tree().change_scene_to(mainScene)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/player.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Visuals/trail.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Audio/610533__impe93__rocket-boost.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
@@ -54,3 +55,9 @@ script = ExtResource( 3 )
 length = 12
 targetPath = NodePath("../..")
 offset = Vector2( -3, 0 )
+
+[node name="MovingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+pitch_scale = 1.1
+autoplay = true

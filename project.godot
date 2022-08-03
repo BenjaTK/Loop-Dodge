@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Clone/clone.gd"
 }, {
+"base": "Button",
+"class": "CustomButton",
+"language": "GDScript",
+"path": "res://Objects/UI/button.gd"
+}, {
+"base": "CustomButton",
+"class": "DifficultySelectButton",
+"language": "GDScript",
+"path": "res://Objects/UI/difficulty_select_button.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "MovingEntity",
 "language": "GDScript",
@@ -36,6 +46,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Clone": "",
+"CustomButton": "",
+"DifficultySelectButton": "",
 "MovingEntity": "",
 "Player": "",
 "ShakeCam": "",

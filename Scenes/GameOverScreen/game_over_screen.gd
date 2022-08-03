@@ -13,11 +13,10 @@ func _ready() -> void:
 	
 	scoreLabel.text = "SC: " + str(Global.points)
 	Global.get_high_score()
-	highScoreLabel.text = "HI. SC: " + str(Global.highScore)
-	var difficulties = Global.difficulties.keys()
-	var idx = Global.difficulties.values().find(Global.difficulty)
-
-	difficultyLabel.text = "DIFF: " + difficulties[idx][0]
+	highScoreLabel.text = "HI. SC: " + str(Global.highScores[Global.difficulty])
+	difficultyLabel.text = "DIFF: " + Global.difficulty
+	
+	Global.save_data()
 	
 func _on_Restart_pressed() -> void:
 	get_tree().change_scene_to(mainScene)

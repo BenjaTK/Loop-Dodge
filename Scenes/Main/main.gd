@@ -13,7 +13,8 @@ var playing := true
 var loop := 1
 
 func _ready() -> void:
-	loopTimer.wait_time = Global.difficulty
+	loopTimer.wait_time = Global.difficulties[Global.difficulty]
+	print(loopTimer.wait_time)
 	loopTimer.start()
 
 func _physics_process(delta: float) -> void:
@@ -34,6 +35,8 @@ func _new_loop():
 	animPlayer.play("next_loop")
 	
 	yield(animPlayer, "animation_finished")
+	if !playing:
+		return
 	
 	get_tree().call_group("clone", "stop_playing")
 	_create_clone(player.replay.duplicate())

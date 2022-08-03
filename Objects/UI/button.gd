@@ -1,4 +1,5 @@
 extends Button
+class_name CustomButton
 
 func _ready() -> void:
 	connect("mouse_entered", self, "_on_hover")
